@@ -1,10 +1,20 @@
 /* Make A Move — Layout Enhancements, Contrast & Core CSS Motion */
 
+html {
+    scroll-padding-top: 88px;
+    overflow-x: clip;
+}
+
 body {
     background-color: #0b0c10 !important;
     color: #CBD5E1;
     overflow-x: clip !important;
     overflow-y: visible !important;
+}
+
+.wrapper {
+    overflow-x: clip;
+    width: 100%;
 }
 
 h1, h2, h3, .h1, .h2, .h3 {
@@ -114,12 +124,10 @@ textarea:focus-visible,
 
 /* Header, Marquee & 44x44px Mobile Hamburger */
 .header {
-    background-color: rgba(13, 14, 18, 0.96) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: #0b0c10 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: relative;
-    z-index: 90;
+    z-index: 950;
 }
 
 .header.header-sticky {
@@ -128,7 +136,7 @@ textarea:focus-visible,
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 950 !important;
     opacity: 1 !important;
     visibility: visible !important;
     transition: background-color 0.25s ease, box-shadow 0.25s ease;
@@ -139,11 +147,23 @@ textarea:focus-visible,
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.65) !important;
 }
 
+.header .menu-primary-menu {
+    gap: clamp(16px, 2vw, 34px) !important;
+}
+
 .header .menu-primary-menu .menu-item .item-link {
     color: #E2E8F0 !important;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14.5px;
+    white-space: nowrap;
     transition: color 0.2s ease;
+}
+
+@media (min-width: 992px) {
+    .sticky-top {
+        top: 132px !important;
+        z-index: 20 !important;
+    }
 }
 
 .header .menu-primary-menu .menu-item.active .item-link,
@@ -155,6 +175,18 @@ textarea:focus-visible,
     padding-top: 12px;
     padding-bottom: 12px;
     max-width: 1440px !important;
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+}
+
+.header .logo-header {
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+.header .header-right {
+    flex-shrink: 0;
 }
 
 @media (min-width: 992px) {

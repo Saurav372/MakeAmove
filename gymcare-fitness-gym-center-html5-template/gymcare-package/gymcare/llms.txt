@@ -12,6 +12,7 @@
 - Coaching Programs: /services.html
 - How It Works: /about-us.html
 - Client Results & Case Studies: /portfolio.html
+- Client Testimonials & Verified Results: /testimonial.html
 - Membership Pricing (Kickstart, Consistency, Lite): /pricing.html
 - Frequently Asked Questions: /faqs.html
 - Evidence-Based Fitness Blog: /blog.html
