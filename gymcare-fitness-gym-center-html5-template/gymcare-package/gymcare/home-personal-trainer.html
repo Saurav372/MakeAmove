@@ -34,18 +34,6 @@
 
         <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <!-- Animate -->
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <!-- Swiper -->
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" type="text/css" href="css/magnific-popup.min.css">
-    <!-- Nice Select -->
-    <link rel="stylesheet" type="text/css" href="css/nice-select.css">
-    <!-- Odometer -->
-    <link rel="stylesheet" type="text/css" href="css/odometer-theme-default.css">
-    <!-- Jquery-ui -->
-    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
@@ -54,587 +42,14 @@
 
     <!-- Font -->
     <link rel="stylesheet" href="font/fonts.css">
+    <!-- Make A Move Motion & Layout -->
+    <link rel="stylesheet" type="text/css" href="css/motion.css">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="image/logo/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="image/logo/favicon.png">
 
-    <!-- Make A Move UI Enhancements & Contrast -->
-    <style>
-        body {
-            background-color: #0b0c10 !important;
-            color: #CBD5E1;
-            overflow-x: clip !important;
-            overflow-y: visible !important;
-        }
-        h1, h2, h3, .h1, .h2, .h3 {
-            text-wrap: balance;
-        }
-        p {
-            text-wrap: pretty;
-        }
-        .price-number, .number, .odometer {
-            font-variant-numeric: tabular-nums;
-        }
-        /* Restore Spacing Utility Classes Not Present in Base Template */
-        .p-10 { padding: 10px !important; }
-        .p-15 { padding: 15px !important; }
-        .p-20 { padding: 20px !important; }
-        .p-25 { padding: 25px !important; }
-        .p-30 { padding: 30px !important; }
-        .p-35 { padding: 35px !important; }
-        .p-40 { padding: 40px !important; }
-        .p-50 { padding: 50px !important; }
-        .pt-20 { padding-top: 20px !important; }
-        .pt-25 { padding-top: 25px !important; }
-        .pt-60 { padding-top: 60px !important; }
-        .pb-25 { padding-bottom: 25px !important; }
-        .mb-12 { margin-bottom: 12px !important; }
-        .mt-20 { margin-top: 20px !important; }
-        .mt-40 { margin-top: 40px !important; }
-        .mt-60 { margin-top: 60px !important; }
-        .my-40 { margin-top: 40px !important; margin-bottom: 40px !important; }
-        .g-5 { gap: 6px !important; }
-        .font-bold { font-weight: 700 !important; }
-        @media (min-width: 992px) {
-            .pl-lg-30 { padding-left: 30px !important; }
-        }
-        @media (max-width: 575px) {
-            .p-50 { padding: 28px 18px !important; }
-            .p-40, .p-35 { padding: 24px 18px !important; }
-        }
-
-        /* Accessible Focus Rings & Pointer Affordance */
-        a, button, .tf-btn, .programs-item, .according-button, .tf-switch-check, label[for], .mobile-button a, .close-mobile-nav, .progress-wrap, .currency-btn {
-            cursor: pointer;
-        }
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible,
-        .programs-item:focus-visible,
-        .tf-btn:focus-visible,
-        .progress-wrap:focus-visible {
-            outline: 2px solid #DEFB02 !important;
-            outline-offset: 2px !important;
-        }
-
-        /* Buttons & High-Contrast Hover States */
-        .tf-btn {
-            display: inline-flex;
-            align-items: center !important;
-            justify-content: center !important;
-            text-align: center !important;
-            min-height: 44px;
-            background-color: #DEFB02;
-            color: #111111 !important;
-            border: 1px solid #DEFB02;
-            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
-        }
-        @media (max-width: 575px) {
-            .tf-btn.d-none {
-                display: none !important;
-            }
-        }
-        .tf-btn:hover {
-            background-color: #cbe600 !important;
-            color: #111111 !important;
-            border-color: #cbe600 !important;
-        }
-        .tf-btn.style-transparent {
-            background-color: transparent !important;
-            border: 1px solid #DEFB02 !important;
-            color: #DEFB02 !important;
-        }
-        .tf-btn.style-transparent:hover,
-        .tf-btn.style-transparent:focus-visible {
-            background-color: #DEFB02 !important;
-            color: #111111 !important;
-            border-color: #DEFB02 !important;
-        }
-        .header-right .tf-btn {
-            min-height: 42px;
-        }
-
-        /* Header, Marquee & 44x44px Mobile Hamburger */
-        .header {
-            background-color: rgba(13, 14, 18, 0.96) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            position: relative;
-            z-index: 90;
-        }
-        .header.header-sticky {
-            position: sticky !important;
-            top: 0 !important;
-            left: 0;
-            right: 0;
-            width: 100%;
-            z-index: 100;
-            opacity: 1 !important;
-            visibility: visible !important;
-            transition: background-color 0.25s ease, box-shadow 0.25s ease;
-        }
-        .header-sticky.header-bg {
-            background-color: #0b0c10 !important;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.65) !important;
-        }
-        .header .menu-primary-menu .menu-item .item-link {
-            color: #E2E8F0 !important;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.2s ease;
-        }
-        .header .menu-primary-menu .menu-item.active .item-link,
-        .header .menu-primary-menu .menu-item:hover .item-link {
-            color: #DEFB02 !important;
-        }
-        .header .header-content {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            max-width: 1440px !important;
-        }
-        @media (min-width: 992px) {
-            .header .header-content {
-                padding-left: 24px !important;
-                padding-right: 24px !important;
-            }
-        }
-        @media (max-width: 1199px) {
-            .mobile-button {
-                display: block !important;
-            }
-        }
-        @media (max-width: 767px) {
-            .header .logo img {
-                max-height: 36px !important;
-            }
-            .header-right {
-                gap: 10px !important;
-            }
-            .header-right .tf-btn {
-                padding: 8px 14px !important;
-                font-size: 12px !important;
-                min-height: 40px !important;
-            }
-        }
-        .mobile-button a {
-            display: inline-flex !important;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            width: 44px !important;
-            height: 44px !important;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            background-color: rgba(255, 255, 255, 0.04);
-        }
-        .mobile-button span {
-            position: static !important;
-            transform: none !important;
-            background-color: #FFFFFF !important;
-            width: 20px !important;
-            height: 2px !important;
-            border-radius: 2px;
-        }
-        .tf-marquee {
-            position: relative;
-            z-index: 10;
-            background-color: #111217 !important;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .tf-marquee .marquee-wrapper .initial-child-container {
-            gap: 0 !important;
-            animation: infiniteScroll 42s linear infinite !important;
-        }
-        .tf-marquee .marquee-wrapper:hover .initial-child-container {
-            animation-play-state: paused !important;
-        }
-        .tf-marquee .marquee-child-item {
-            padding-right: 15px !important;
-            white-space: nowrap;
-        }
-        .tf-marquee .text-Title {
-            color: #DEFB02 !important;
-        }
-        .tf-marquee .text-White {
-            color: #E2E8F0 !important;
-        }
-        .tf-marquee svg polygon,
-        .tf-marquee svg path {
-            fill: #DEFB02 !important;
-        }
-
-        /* Responsive Balanced Inner Page Hero Banner & Breadcrumbs */
-        .page-title {
-            padding: 105px 0 75px !important;
-            margin-top: 12px !important;
-        }
-        .page-title::before {
-            background: linear-gradient(180deg, rgba(11, 12, 16, 0.45) 0%, rgba(11, 12, 16, 0.88) 100%) !important;
-        }
-        .page-title .page-title-content .title {
-            font-size: clamp(2.1rem, 4.5vw, 4.25rem) !important;
-            line-height: 1.15 !important;
-            letter-spacing: -0.02em !important;
-            margin-bottom: 24px !important;
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            padding: 0 15px;
-        }
-        .page-title .page-title-content .title * {
-            color: inherit !important;
-            -webkit-text-fill-color: inherit !important;
-        }
-        .page-title .page-title-content .breadkcum {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px 14px !important;
-            max-width: 100%;
-        }
-        .page-title .page-title-content .breadkcum .breadkcum-item {
-            font-size: clamp(13px, 2.8vw, 18px) !important;
-            line-height: 1.3 !important;
-        }
-        @media (max-width: 767px) {
-            .page-title {
-                padding: 72px 0 52px !important;
-                margin: 8px 10px 0 !important;
-            }
-        }
-
-        /* Contrast, Badge Wrapping & Readability Fixes */
-        .text-Paragraph {
-            color: #B8C0CC !important;
-        }
-        .text-muted {
-            color: #94A3B8 !important;
-        }
-        .badge, .badge-track, .badge-cat, .badge-remote {
-            white-space: normal;
-            max-width: 100%;
-        }
-        .item-title, .d-flex.justify-content-between.align-items-center {
-            flex-wrap: wrap;
-            gap: 8px 12px;
-        }
-        .box-gradient-2,
-        .box-gradient-2.text-Title {
-            background: linear-gradient(90deg, #DEFB02 0%, rgba(222, 251, 2, 0.82) 100%) !important;
-            color: #111111 !important;
-            font-weight: 700;
-        }
-        .text-gradient-1 {
-            -webkit-text-fill-color: #DEFB02 !important;
-            -webkit-text-stroke: 0 !important;
-            color: #DEFB02 !important;
-        }
-        .text-White a,
-        h1.text-White a,
-        h2.text-White a,
-        h3.text-White a,
-        h4.text-White a {
-            color: #FFFFFF !important;
-        }
-        a.text-Paragraph:hover,
-        a.text-White:hover,
-        .text-White a:hover,
-        h1.text-White a:hover,
-        h2.text-White a:hover,
-        h3.text-White a:hover,
-        h4.text-White a:hover,
-        .footer-menu a:hover {
-            color: #DEFB02 !important;
-        }
-
-        /* Instant Visibility for Headlines, Hero Elements, Badges & Scroll-Color Headings */
-        .text-anime,
-        .text-anime div,
-        .text-anime span,
-        .wow,
-        .tf-animate-1,
-        .tf-animate-2,
-        .tf-animate-3,
-        .tf-animate-4 {
-            opacity: 1 !important;
-            visibility: visible !important;
-            clip-path: none !important;
-            transform: none !important;
-            animation: none !important;
-        }
-        .text-color-change-white,
-        .text-color-change-white .text,
-        .text-color-change-white .word-wrapper,
-        .text-color-change-white .char-wrapper {
-            color: #FFFFFF !important;
-        }
-        .footer-menu a {
-            display: inline-block;
-            padding: 4px 0;
-            transition: color 0.2s ease;
-        }
-
-        /* Hero & Portrait Grounding */
-        .section-hero-3 {
-            background: radial-gradient(circle at top right, #1b1e28 0%, #0b0c10 72%);
-            padding-top: 32px !important;
-            padding-bottom: 64px !important;
-            max-width: 100% !important;
-            overflow-x: clip !important;
-        }
-        @media (min-width: 992px) {
-            .section-hero-3 {
-                max-width: 1440px !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                padding: 28px 24px 56px !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                gap: 56px !important;
-            }
-            .section-hero-3 .content {
-                flex: 1 1 55% !important;
-                width: auto !important;
-                max-width: 720px !important;
-                padding: 12px 0 !important;
-            }
-            .section-hero-3 .content .title {
-                font-size: clamp(2.75rem, 4.1vw, 4.25rem) !important;
-                line-height: 1.08 !important;
-                margin-bottom: 24px !important;
-            }
-            .section-hero-3 .content .bot {
-                gap: 24px 36px !important;
-                align-items: center !important;
-            }
-            .section-hero-3 .image {
-                flex: 0 0 auto !important;
-                width: min(42%, 500px) !important;
-                margin-left: auto !important;
-                justify-content: flex-end !important;
-            }
-            .section-hero-3 .image img {
-                width: 100% !important;
-                max-width: 500px !important;
-                max-height: 580px !important;
-                aspect-ratio: 4 / 4.6;
-                object-fit: cover !important;
-                border-radius: 14px !important;
-                border: 1px solid rgba(255, 255, 255, 0.08);
-                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-            }
-        }
-        .section-hero-3 .content {
-            min-width: 0 !important;
-            max-width: 100% !important;
-        }
-        .section-hero-3 .content .sub-title {
-            background: rgba(222, 251, 2, 0.14) !important;
-            color: #DEFB02 !important;
-            border: 1px solid rgba(222, 251, 2, 0.4) !important;
-            display: inline-block;
-            border-radius: 6px;
-        }
-        .section-hero-3 .content .title {
-            color: #FFFFFF !important;
-            overflow-wrap: break-word !important;
-            max-width: 100% !important;
-        }
-        .section-hero-3 .content .title .flip-item {
-            background-color: #DEFB02 !important;
-            color: #111111 !important;
-            padding: 0 12px;
-            border-radius: 6px;
-        }
-        .section-hero-3 .content .bot {
-            flex-wrap: wrap !important;
-            max-width: 100% !important;
-        }
-        @media (max-width: 991px) {
-            .section-hero-3 .content .bot {
-                gap: 20px !important;
-            }
-        }
-        .section-hero-3 .content .bot .text {
-            color: #CBD5E1 !important;
-            text-transform: none;
-            font-weight: 500;
-            overflow-wrap: break-word !important;
-            max-width: 100% !important;
-            white-space: normal !important;
-        }
-        @media (max-width: 767px) {
-            .section-hero-3 {
-                padding: 36px 16px 56px !important;
-            }
-            .section-hero-3 .content .title {
-                font-size: clamp(2rem, 8.5vw, 2.75rem) !important;
-                line-height: 1.15 !important;
-            }
-            .section-hero-3 .content .bot .text br {
-                display: none;
-            }
-            .section-hero-3 .content .tf-btn {
-                width: 100%;
-                max-width: 340px;
-            }
-        }
-        .section-hero-3 .image {
-            margin-left: 0 !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .section-hero-3 .image img,
-        .section-about-gym img,
-        .about-wrap-2 img,
-        img[src*="coach-kunal"],
-        img[src*="portfolio-1"],
-        img[src*="blog-5"] {
-            object-position: center top !important;
-        }
-
-        /* Interactive Cards, Pricing Switch & Accordions */
-        .programs-image img {
-            width: 100%;
-            height: 480px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: opacity 0.2s ease;
-        }
-        @media (max-width: 991px) {
-            .programs-image img {
-                height: 320px;
-            }
-        }
-        .programs-item {
-            background: #181818;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 20px 24px;
-            cursor: pointer;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
-        }
-        .programs-item.active-img,
-        .programs-item:hover {
-            background: #20232c;
-            border-color: #DEFB02;
-        }
-        .programs-item h3 a,
-        .programs-item h4 a {
-            color: #FFFFFF !important;
-        }
-        .programs-item.active-img h3 a,
-        .programs-item.active-img h4 a {
-            color: #DEFB02 !important;
-        }
-        .pricing-item::before,
-        .pricing-item::after {
-            display: none !important;
-        }
-        .pricing-item {
-            overflow: visible !important;
-        }
-        .pricing-option {
-            min-height: 48px;
-        }
-        .currency-btn {
-            background: transparent;
-            border: 1px solid transparent;
-            color: #94A3B8;
-            font-weight: 600;
-            font-size: 14px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            min-height: 36px;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-        .currency-btn.active {
-            background-color: rgba(222, 251, 2, 0.16);
-            border-color: rgba(222, 251, 2, 0.45);
-            color: #DEFB02;
-        }
-        .according-button {
-            min-height: 56px;
-        }
-        .faq-toggle-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: transform 0.2s ease;
-        }
-        .according-button:not(.collapsed) .faq-toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        /* Form Inputs & Accessible Inline Validation */
-        .form-contact input::placeholder,
-        .form-contact textarea::placeholder,
-        .sidebar-item input::placeholder {
-            color: #94A3B8 !important;
-            opacity: 1 !important;
-        }
-        .form-contact select option {
-            background-color: #181818;
-            color: #FFFFFF;
-        }
-        .form-contact [aria-invalid="true"] {
-            border-color: #fb7185 !important;
-        }
-        .field-error-msg {
-            color: #fda4af;
-            font-size: 13px;
-            margin-top: 6px;
-        }
-
-        .section-news-2::before {
-            background-color: transparent !important;
-        }
-        .mobile-nav-wrap {
-            background-color: #111217 !important;
-        }
-        .mobile-nav-wrap .menu-mobile-nav a {
-            color: #E2E8F0 !important;
-            display: block;
-            padding: 10px 0;
-        }
-        .mobile-nav-wrap .menu-mobile-nav a:hover {
-            color: #DEFB02 !important;
-        }
-        .mobile-nav-wrap .close-mobile-nav {
-            color: #FFFFFF !important;
-            min-width: 44px;
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #loading {
-            background-color: #0b0c10 !important;
-            z-index: 9999;
-        }
-        /* Respect User Reduced-Motion Preference */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto !important;
-            }
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            .tf-marquee .marquee-wrapper .initial-child-container,
-            .tf-marquee.revert .marquee-wrapper {
-                animation: none !important;
-            }
-        }
-    </style>
+    <noscript><style>#loading{display:none!important;}</style></noscript>
 
     <!-- Structured Data JSON-LD -->
     <script type="application/ld+json">
@@ -700,7 +115,7 @@
     </script>
 </head>
 
-<body class="counter-scroll">
+<body>
 
     <!-- .preload -->
     <div id="loading">
@@ -832,7 +247,7 @@
         <!-- hero -->
         <section class="section-hero-3">
             <div class="content">
-                <div class="sub-title text-uppercase box-gradient-2 text-Title text-anime">hello, i’m Coach Kunal</div>
+                <div class="sub-title text-uppercase box-gradient-2 text-Title">hello, i’m Coach Kunal</div>
                 <h1 class="title">
                     Your Trusted 
                     <br>
@@ -850,12 +265,12 @@
                         without extreme diets or 90-minute gym sessions.
                     </div>
                     <div class="d-flex flex-wrap g-15 align-items-center">
-                        <a href="contact.html" class="tf-btn flex-shrink-0 text-uppercase wow fadeInUp" data-wow-delay=".1s">Book 15-Min Clarity Call</a>
-                        <a href="https://wa.me/919307214914" target="_blank" rel="noopener noreferrer" class="tf-btn style-transparent wow fadeInUp" data-wow-delay=".2s" style="border: 1px solid #DEFB02; color: #DEFB02;">WhatsApp Coach Kunal</a>
+                        <a href="contact.html" class="tf-btn flex-shrink-0 text-uppercase">Book 15-Min Clarity Call</a>
+                        <a href="https://wa.me/919307214914" target="_blank" rel="noopener noreferrer" class="tf-btn style-transparent" style="border: 1px solid #DEFB02; color: #DEFB02;">WhatsApp Coach Kunal</a>
                     </div>
                 </div>
             </div>
-            <div class="image tf-animate-2">
+            <div class="image">
                 <img src="image/section/coach-kunal.jpg" alt="Coach Kunal - Make A Move Online Personal Trainer" style="border-radius: 12px; object-fit: cover; object-position: center top; max-height: 620px; width: 100%;">
             </div>
         </section>
@@ -867,7 +282,7 @@
                 <div class="tf-container">
                     <div class="row">
                         <div class="col-md-4 col-xl-6">
-                            <div class="text-1 text-uppercase box-gradient-2 title text-Title text-anime">Coaching tracks</div>
+                            <div class="text-1 text-uppercase box-gradient-2 title text-Title">Coaching tracks</div>
                         </div>
                         <div class="col-md-8 col-xl-6">
                             <div class="text-color-change-white">
@@ -929,7 +344,7 @@
                 <div class="tf-container">
                     <div class="row">
                         <div class="col-md-4 col-xl-6">
-                            <div class="text-1 text-uppercase box-gradient-2 title text-Title text-anime">Coaching workflow</div>
+                            <div class="text-1 text-uppercase box-gradient-2 title text-Title">Coaching workflow</div>
                         </div>
                         <div class="col-md-8 col-xl-6">
                             <div class="text-color-change-white">
@@ -949,7 +364,20 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                                <div class="mam-workflow-rail" aria-hidden="true">
+                    <svg class="mam-workflow-svg" viewBox="0 0 1000 44" preserveAspectRatio="none">
+                        <line class="mam-wf-bg" x1="60" y1="22" x2="940" y2="22" />
+                        <line class="mam-wf-line" x1="60" y1="22" x2="940" y2="22" />
+                    </svg>
+                    <div class="mam-workflow-nodes">
+                        <span class="mam-wf-node" data-step="0">01</span>
+                        <span class="mam-wf-node" data-step="1">02</span>
+                        <span class="mam-wf-node" data-step="2">03</span>
+                        <span class="mam-wf-node" data-step="3">04</span>
+                        <span class="mam-wf-node" data-step="4">05</span>
+                    </div>
+                </div>
+<div class="row">
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="box-work p-30" style="background: #181818; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; height: 100%;">
                             <div class="number text-gradient-1 h1 mb-20">01</div>
@@ -998,14 +426,14 @@
                         <div class="image-wrap position-relative">
                             <img src="image/section/coach-kunal.jpg" alt="Coach Kunal Founder Make A Move" style="border-radius: 12px; width: 100%; max-height: 600px; object-fit: cover;">
                             <div class="badge-experience p-20" style="position: absolute; bottom: 20px; left: 20px; background: #DEFB02; color: #111; border-radius: 8px; font-weight: 700;">
-                                <div class="h2 mb-0" style="color: #111; line-height: 1;">1,000+</div>
+                                <div class="h2 mb-0" style="color: #111; line-height: 1;" data-count-to="1000" data-format="comma" data-suffix="+">1,000+</div>
                                 <div class="text-uppercase" style="font-size: 12px; letter-spacing: 0.5px;">Online Sessions Delivered</div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="about-content pl-lg-30">
-                            <div class="text-1 text-uppercase box-gradient-2 title text-Title text-anime mb-15">About Coach Kunal</div>
+                            <div class="text-1 text-uppercase box-gradient-2 title text-Title mb-15">About Coach Kunal</div>
                             <h2 class="text-White mb-20">Hi, I am Kunal — your coach for progress you can measure.</h2>
                             <p class="text-Paragraph mb-20">
                                 As an Indian National Ultimate Frisbee professional athlete, I know the difference between exhausting training and smart, progressive movement. I founded <strong>Make A Move</strong> to give desk professionals, WFH engineers, and busy parents a clear, realistic roadmap to strength without burning out.
@@ -1015,22 +443,22 @@
                             </p>
                             <div class="row mb-30">
                                 <div class="col-6 mb-20">
-                                    <div class="h3 text-gradient-1 mb-5">1,000+</div>
+                                    <div class="h3 text-gradient-1 mb-5" data-count-to="1000" data-format="comma" data-suffix="+">1,000+</div>
                                     <div class="text-White fw-semibold">1-on-1 Sessions</div>
                                     <div class="text-Paragraph" style="font-size: 13px;">Tested online coaching framework</div>
                                 </div>
                                 <div class="col-6 mb-20">
-                                    <div class="h3 text-gradient-1 mb-5">20-40m</div>
+                                    <div class="h3 text-gradient-1 mb-5" data-range-a="20" data-range-b="40" data-suffix="m">20-40m</div>
                                     <div class="text-White fw-semibold">Workout Blocks</div>
                                     <div class="text-Paragraph" style="font-size: 13px;">Fits between meetings & calls</div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="h3 text-gradient-1 mb-5">24h</div>
+                                    <div class="h3 text-gradient-1 mb-5" data-count-to="24" data-suffix="h">24h</div>
                                     <div class="text-White fw-semibold">Form Review SLA</div>
                                     <div class="text-Paragraph" style="font-size: 13px;">Asynchronous video feedback</div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="h3 text-gradient-1 mb-5">100%</div>
+                                    <div class="h3 text-gradient-1 mb-5" data-count-to="100" data-suffix="%">100%</div>
                                     <div class="text-White fw-semibold">Personalized</div>
                                     <div class="text-Paragraph" style="font-size: 13px;">Built around your equipment</div>
                                 </div>
@@ -1049,7 +477,7 @@
                 <div class="tf-container">
                     <div class="row align-items-center">
                         <div class="col-md-6">
-                            <div class="text-1 text-uppercase box-gradient-2 title text-Title text-anime">Coaching packages</div>
+                            <div class="text-1 text-uppercase box-gradient-2 title text-Title">Coaching packages</div>
                             <div class="text-color-change-white">
                                 <h2 class="text-uppercase text">
                                     Invest in coaching that keeps momentum
@@ -1156,7 +584,7 @@
                 <div class="tf-container">
                     <div class="row">
                         <div class="col-md-4 col-xl-6">
-                            <div class="text-1 text-uppercase box-gradient-2 title text-Title text-anime">Client stories</div>
+                            <div class="text-1 text-uppercase box-gradient-2 title text-Title">Client stories</div>
                         </div>
                         <div class="col-md-8 col-xl-6">
                             <div class="text-color-change-white">
@@ -1176,7 +604,7 @@
                                 <span class="badge" style="background: rgba(222,251,2,0.15); color: #DEFB02; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Busy Pro Express</span>
                             </div>
                             <h3 class="h4 text-White mb-10">Anita — Product Manager</h3>
-                            <div class="stats mb-15" style="color: #DEFB02; font-weight: 600; font-size: 14px;">4 kg down • 7 cm off waist • 10 weeks</div>
+                            <div class="stats mb-15" style="color: #DEFB02; font-weight: 600; font-size: 14px;">4 kg down • 7 cm off waist • 10 weeks<div class="mam-kpi-bar" aria-hidden="true"><span class="mam-kpi-fill" style="--kpi-p: 84%;"></span></div></div>
                             <p class="text-Paragraph mb-20">"Shifted from sporadic HIIT classes to structured 30-minute strength sessions between calls. Weekly check-ins kept me honest even through travel weeks."</p>
                             <div class="author-meta text-muted" style="font-size: 13px;">Bangalore • Remote Tech Worker</div>
                         </div>
@@ -1187,7 +615,7 @@
                                 <span class="badge" style="background: rgba(222,251,2,0.15); color: #DEFB02; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Posture Reset</span>
                             </div>
                             <h3 class="h4 text-White mb-10">Rahul — UX Lead</h3>
-                            <div class="stats mb-15" style="color: #DEFB02; font-weight: 600; font-size: 14px;">Neck pain 7/10 -> 2/10 • 5 weeks</div>
+                            <div class="stats mb-15" style="color: #DEFB02; font-weight: 600; font-size: 14px;">Neck pain 7/10 -> 2/10 • 5 weeks<div class="mam-kpi-bar" aria-hidden="true"><span class="mam-kpi-fill" style="--kpi-p: 71%;"></span></div></div>
                             <p class="text-Paragraph mb-20">"Added mobility snacks and posterior-chain work that fit into lunch breaks and evening walks. My physio noticed the difference before I did — lifting feels smooth again."</p>
                             <div class="author-meta text-muted" style="font-size: 13px;">Hyderabad • WFH Software Team</div>
                         </div>
@@ -1198,7 +626,7 @@
                                 <span class="badge" style="background: rgba(222,251,2,0.15); color: #DEFB02; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Beginner Start Line</span>
                             </div>
                             <h3 class="h4 text-White mb-10">Priya — New Mother</h3>
-                            <div class="stats mb-15" style="color: #DEFB02; font-weight: 600; font-size: 14px;">Core strength +35% • Energy back by week 6</div>
+                            <div class="stats mb-15" style="color: #DEFB02; font-weight: 600; font-size: 14px;">Core strength +35% • Energy back by week 6<div class="mam-kpi-bar" aria-hidden="true"><span class="mam-kpi-fill" style="--kpi-p: 88%;"></span></div></div>
                             <p class="text-Paragraph mb-20">"Started with diaphragmatic breathing and pelvic floor connection before progressing to dumbbell squats. Coach Kunal's patient cues made workouts feel safe and empowering."</p>
                             <div class="author-meta text-muted" style="font-size: 13px;">Postpartum Recovery Program</div>
                         </div>
@@ -1217,7 +645,7 @@
                 <div class="tf-container">
                     <div class="row">
                         <div class="col-md-4 col-xl-6">
-                            <div class="text-1 text-uppercase box-gradient-2 title text-Title text-anime">Knowledge Hub</div>
+                            <div class="text-1 text-uppercase box-gradient-2 title text-Title">Knowledge Hub</div>
                         </div>
                         <div class="col-md-8 col-xl-6">
                             <div class="text-color-change-white">
@@ -1233,7 +661,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="blog-card" style="background: #181818; border-radius: 8px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
-                            <img src="image/blog/blog-1.jpg" alt="Beginner Squat Form Cues" style="width: 100%; height: 220px; object-fit: cover;">
+                            <div class="blog-thumb"><img src="image/blog/blog-1.jpg" alt="Beginner Squat Form Cues" style="width: 100%; height: 220px; object-fit: cover;"></div>
                             <div class="p-25" style="flex-grow: 1; display: flex; flex-direction: column;">
                                 <div class="badge-cat mb-10" style="color: #DEFB02; font-size: 12px; font-weight: 600; text-transform: uppercase;">Form Coaching</div>
                                 <h3 class="h4 text-White mb-12"><a href="blog-details.html">Beginner Form Cues for Squats at Home</a></h3>
@@ -1244,7 +672,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="blog-card" style="background: #181818; border-radius: 8px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
-                            <img src="image/blog/blog-2.jpg" alt="10-Minute Desk Mobility Reset" style="width: 100%; height: 220px; object-fit: cover;">
+                            <div class="blog-thumb"><img src="image/blog/blog-2.jpg" alt="10-Minute Desk Mobility Reset" style="width: 100%; height: 220px; object-fit: cover;"></div>
                             <div class="p-25" style="flex-grow: 1; display: flex; flex-direction: column;">
                                 <div class="badge-cat mb-10" style="color: #DEFB02; font-size: 12px; font-weight: 600; text-transform: uppercase;">Mobility</div>
                                 <h3 class="h4 text-White mb-12"><a href="blog.html">10-Minute Desk Mobility Reset</a></h3>
@@ -1255,7 +683,7 @@
                     </div>
                     <div class="col-lg-4 col-md-12 mb-30">
                         <div class="blog-card" style="background: #181818; border-radius: 8px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
-                            <img src="image/blog/blog-3.jpg" alt="Habit Stacking for Busy Pros" style="width: 100%; height: 220px; object-fit: cover;">
+                            <div class="blog-thumb"><img src="image/blog/blog-3.jpg" alt="Habit Stacking for Busy Pros" style="width: 100%; height: 220px; object-fit: cover;"></div>
                             <div class="p-25" style="flex-grow: 1; display: flex; flex-direction: column;">
                                 <div class="badge-cat mb-10" style="color: #DEFB02; font-size: 12px; font-weight: 600; text-transform: uppercase;">Habits</div>
                                 <h3 class="h4 text-White mb-12"><a href="blog.html">Habit Stacking for Consistent Workouts</a></h3>
@@ -1444,18 +872,8 @@
         <!-- Javascript -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/gsap.min.js"></script>
-    <script src="js/ScrollTrigger.min.js"></script>
-    <script src="js/Splitetext.js"></script>
-    <script src="js/gsap-animation.js"></script>
-    <script src="js/magnific-popup.min.js"></script>
-    <script src="js/odometer.min.js"></script>
-    <script src="js/simpleParallaxVanilla.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/carousel.js"></script>
-    <script src="js/wow.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/motion.js"></script>
 
 </body>
 </html>

@@ -1,15 +1,12 @@
 /**
- * 
+ *
  *  headerSticky
- *  video
  *  btnSearch
- *  counter
- *  progresslevel
- *  circlesProgressLevel
+ *  change_image (programs switcher)
  *  handleAccordionBorders
- *  parallaxImage
  *  gotop
  *  switchPrice
+ *  contactFormA11y
  *  preloader
  *
  **/
@@ -54,14 +51,6 @@
 
         updateHeader();
     };
-    
-    var video = function () {
-        if ($(".wg-video").length && typeof $.fn.magnificPopup === "function") {
-            $(".popup-youtube").magnificPopup({
-                type: "iframe",
-            });
-        }
-    };
 
     var btn = function () {
         $(document).on("click", function (e) {
@@ -99,29 +88,39 @@
     };
     
     var change_image = () => {
-        $('.trainer-item').on('mouseenter', function(){
-            if(!$(this).hasClass('active-img')) {
-                $('.trainer-item').removeClass('active-img');
-                $(this).addClass('active-img');
-    
-                const newImg = $(this).data('img');
-                $('.trainer-image').find('img').css('opacity', 0);
-                setTimeout(() => {
-                  $('.trainer-image').find('img').attr('src', newImg).css('opacity', 1);
-                }, 200);
-            }
-        });
-        
-        function activateProgramItem($item) {
-            if (!$item.hasClass('active-img')) {
-                $('.programs-item').removeClass('active-img').attr('aria-pressed', 'false');
-                $item.addClass('active-img').attr('aria-pressed', 'true');
+        var swapToken = 0;
 
-                const newImg = $item.data('img');
-                $('.programs-image').find('img').css('opacity', 0);
-                setTimeout(() => {
-                    $('.programs-image').find('img').attr('src', newImg).css('opacity', 1);
-                }, 150);
+        function activateProgramItem($item) {
+            if ($item.hasClass('active-img')) return;
+            $('.programs-item').removeClass('active-img').attr('aria-pressed', 'false');
+            $item.addClass('active-img').attr('aria-pressed', 'true');
+
+            var newImg = $item.data('img');
+            var altText = $item.find('h3, h4').first().text().trim() || 'Coaching Program';
+            var $img = $('.programs-image').find('img');
+            if (!$img.length || !newImg) return;
+
+            var token = ++swapToken;
+            var swapped = false;
+            $img.addClass('is-swapping');
+
+            var pre = new Image();
+            var finishSwap = function () {
+                if (swapped || token !== swapToken) return;
+                swapped = true;
+                $img.attr({ src: newImg, alt: altText });
+                requestAnimationFrame(function () {
+                    $img.removeClass('is-swapping');
+                });
+            };
+
+            pre.onload = function () {
+                setTimeout(finishSwap, 100);
+            };
+            pre.onerror = finishSwap;
+            pre.src = newImg;
+            if (pre.complete) {
+                setTimeout(finishSwap, 100);
             }
         }
 
@@ -134,97 +133,6 @@
                     activateProgramItem($(this));
                 }
             }
-        });
-    };
-
-    var counter = function () {
-        if ($(document.body).hasClass("counter-scroll")) {
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            const element = $(entry.target);
-
-                            if (!element.hasClass("odometer-activated")) {
-                                const to = element.data("to");
-                                element.addClass("odometer-activated");
-
-                                element.html(to);
-                            }
-
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.5 }
-            );
-
-            $(".counter .number").each(function () {
-                observer.observe(this);
-            });
-        }
-    };
-
-    var progresslevel = function () {
-        if ($(".progress-bars").length) {
-            var bars = document.querySelectorAll(".progress-bars-line > div");
-            setInterval(function () {
-                bars.forEach(function (bar) {
-                    var t1 = parseFloat(bar.dataset.progress);
-                    var t2 = parseFloat(bar.dataset.max);
-                    var getWidth = (t1 / t2) * 100;
-                    bar.style.width = getWidth + "%";
-                });
-            }, 500);
-        }
-    };
-
-    var circlesProgressLevel = function () {
-        var circles = document.querySelectorAll(".progress-circle-svg");
-        var observer = new IntersectionObserver(
-            function (entries, observer) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting && entry.intersectionRatio >= 0.9) {
-                        var el = entry.target;
-                        var progressValue = parseFloat(el.dataset.progress);
-
-                        var textElement = el.querySelector(".progress-text");
-                        var progressBar = el.querySelector(".progress-ring-bar");
-
-                        var radius = parseFloat(progressBar.getAttribute("r"));
-                        var circumference = 2 * Math.PI * radius;
-
-                        progressBar.style.strokeDasharray = `${circumference} ${circumference}`;
-                        progressBar.style.strokeDashoffset = circumference;
-
-                        let currentProgress = 0;
-                        let animationFrameId;
-
-                        function animateCircle() {
-                            if (currentProgress < progressValue) {
-                                currentProgress += 1;
-                                const offset = circumference - (currentProgress / 100) * circumference;
-                                progressBar.style.strokeDashoffset = offset;
-                                textElement.textContent = Math.round(currentProgress);
-                                animationFrameId = requestAnimationFrame(animateCircle);
-                            } else {
-                                const finalOffset = circumference - (progressValue / 100) * circumference;
-                                progressBar.style.strokeDashoffset = finalOffset;
-                                textElement.textContent = Math.round(progressValue);
-                                cancelAnimationFrame(animationFrameId);
-                            }
-                        }
-
-                        animateCircle();
-                        observer.unobserve(el);
-                    }
-                });
-            },
-            { threshold: 0.9 }
-        );
-
-        circles.forEach(function (circle) {
-            observer.observe(circle);
         });
     };
 
@@ -253,24 +161,6 @@
 
                 collapseEl.addEventListener("show.bs.collapse", addActiveBorder);
                 collapseEl.addEventListener("hide.bs.collapse", removeActiveBorder);
-            });
-        }
-    };
-
-    var parallaxImage = function () {
-        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            return;
-        }
-        if ($(".parallax-img").length > 0 && typeof SimpleParallax !== "undefined") {
-            $(".parallax-img").each(function () {
-                new SimpleParallax(this, {
-                    delay: 0.6,
-                    orientation: "up",
-                    scale: 1.17,
-                    transition: "cubic-bezier(0,0,0,1)",
-                    customContainer: "",
-                    customWrapper: "",
-                });
             });
         }
     };
@@ -317,15 +207,14 @@
     };
 
     var switchPrice = () => {
+        var priceToken = 0;
+        var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
         function formatUSD(n) {
             return "$" + Number(n).toLocaleString("en-US");
         }
 
-        function updatePrices(isSecondary) {
-            $("#pricingSwitch").attr("aria-checked", isSecondary ? "true" : "false");
-            $(".currency-btn-inr").toggleClass("active", !isSecondary);
-            $(".currency-btn-usd").toggleClass("active", isSecondary);
-
+        function applyPriceText(isSecondary) {
             $(".price-number").each(function () {
                 const $p = $(this);
                 if ($p.attr("data-inr") !== undefined && $p.attr("data-usd") !== undefined) {
@@ -344,19 +233,47 @@
             });
         }
 
+        function updatePrices(isSecondary, animate) {
+            $("#pricingSwitch").attr("aria-checked", isSecondary ? "true" : "false");
+            $(".currency-btn-inr").toggleClass("active", !isSecondary);
+            $(".currency-btn-usd").toggleClass("active", isSecondary);
+
+            if (!animate || reducedMotion) {
+                applyPriceText(isSecondary);
+                return;
+            }
+
+            var token = ++priceToken;
+            var $boxes = $(".price-box");
+            $boxes.addClass("is-price-updating");
+            setTimeout(function () {
+                if (token !== priceToken) return;
+                applyPriceText(isSecondary);
+                requestAnimationFrame(function () {
+                    $boxes.removeClass("is-price-updating");
+                });
+            }, 130);
+        }
+
         $("#pricingSwitch").on("change", function () {
-            updatePrices(this.checked);
+            updatePrices(this.checked, true);
         });
 
         $(".currency-btn-inr").on("click", function () {
-            $("#pricingSwitch").prop("checked", false).trigger("change");
+            var $sw = $("#pricingSwitch");
+            if ($sw.is(":checked")) {
+                $sw.prop("checked", false).trigger("change");
+            }
         });
 
         $(".currency-btn-usd").on("click", function () {
-            $("#pricingSwitch").prop("checked", true).trigger("change");
+            var $sw = $("#pricingSwitch");
+            if (!$sw.is(":checked")) {
+                $sw.prop("checked", true).trigger("change");
+            }
         });
 
-        updatePrices($("#pricingSwitch").is(":checked"));
+        updatePrices($("#pricingSwitch").is(":checked"), false);
     };
 
     var contactFormA11y = () => {
@@ -412,31 +329,23 @@
     };
 
     var preloader = function () {
-        if ($("#loading").length) {
-            $("#loading").fadeOut("fast", function () {
-                $(this).remove();
-            });
+        var el = document.getElementById("loading");
+        if (el) {
+            el.remove();
         }
     };
 
-    // Safety timeout to ensure loader never hangs if an external asset delays
-    setTimeout(preloader, 800);
-    $(window).on("load", preloader);
+    preloader();
 
     // Dom Ready
     $(function () {
+        preloader();
         headerSticky();
-        video();
         btn();
         change_image();
-        counter();
-        progresslevel();
-        circlesProgressLevel();
         handleAccordionBorders();
-        parallaxImage();
         gotop();
         switchPrice();
         contactFormA11y();
-        preloader();
     });
 })(jQuery);
