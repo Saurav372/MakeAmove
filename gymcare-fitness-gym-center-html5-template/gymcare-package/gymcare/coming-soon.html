@@ -195,7 +195,13 @@
         .header .header-content {
             padding-top: 12px;
             padding-bottom: 12px;
-            max-width: 100%;
+            max-width: 1440px !important;
+        }
+        @media (min-width: 992px) {
+            .header .header-content {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+            }
         }
         @media (max-width: 1199px) {
             .mobile-button {
@@ -241,6 +247,17 @@
             background-color: #111217 !important;
             padding: 8px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .tf-marquee .marquee-wrapper .initial-child-container {
+            gap: 0 !important;
+            animation: infiniteScroll 42s linear infinite !important;
+        }
+        .tf-marquee .marquee-wrapper:hover .initial-child-container {
+            animation-play-state: paused !important;
+        }
+        .tf-marquee .marquee-child-item {
+            padding-right: 15px !important;
+            white-space: nowrap;
         }
         .tf-marquee .text-Title {
             color: #DEFB02 !important;
@@ -365,10 +382,53 @@
         /* Hero & Portrait Grounding */
         .section-hero-3 {
             background: radial-gradient(circle at top right, #1b1e28 0%, #0b0c10 72%);
-            padding-top: 60px !important;
-            padding-bottom: 80px !important;
+            padding-top: 32px !important;
+            padding-bottom: 64px !important;
             max-width: 100% !important;
             overflow-x: clip !important;
+        }
+        @media (min-width: 992px) {
+            .section-hero-3 {
+                max-width: 1440px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                padding: 28px 24px 56px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                gap: 56px !important;
+            }
+            .section-hero-3 .content {
+                flex: 1 1 55% !important;
+                width: auto !important;
+                max-width: 720px !important;
+                padding: 12px 0 !important;
+            }
+            .section-hero-3 .content .title {
+                font-size: clamp(2.75rem, 4.1vw, 4.25rem) !important;
+                line-height: 1.08 !important;
+                margin-bottom: 24px !important;
+            }
+            .section-hero-3 .content .bot {
+                gap: 24px 36px !important;
+                align-items: center !important;
+            }
+            .section-hero-3 .image {
+                flex: 0 0 auto !important;
+                width: min(42%, 500px) !important;
+                margin-left: auto !important;
+                justify-content: flex-end !important;
+            }
+            .section-hero-3 .image img {
+                width: 100% !important;
+                max-width: 500px !important;
+                max-height: 580px !important;
+                aspect-ratio: 4 / 4.6;
+                object-fit: cover !important;
+                border-radius: 14px !important;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+            }
         }
         .section-hero-3 .content {
             min-width: 0 !important;
@@ -607,6 +667,43 @@
                         <span class="text-uppercase text-White" style="font-size: 13px;">1,000+ Online Sessions Delivered</span>
                         <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
                         <span class="text-uppercase text-White" style="font-size: 13px;">No Extreme Diets • Real Habits That Stick</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">Desk Mobility & Strength Programs</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                    </div>
+                    <div class="marquee-child-item d-flex align-items-center g-15" aria-hidden="true">
+                        <span class="text-uppercase fw-semibold text-Title" style="color: #DEFB02; font-size: 13px; letter-spacing: 1px;">Make A Move</span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">Online 1-on-1 Coaching for Busy Professionals</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">1,000+ Online Sessions Delivered</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">No Extreme Diets • Real Habits That Stick</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">Desk Mobility & Strength Programs</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                    </div>
+                </div>
+                <div class="initial-child-container" aria-hidden="true">
+                    <div class="marquee-child-item d-flex align-items-center g-15" aria-hidden="true">
+                        <span class="text-uppercase fw-semibold text-Title" style="color: #DEFB02; font-size: 13px; letter-spacing: 1px;">Make A Move</span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">Online 1-on-1 Coaching for Busy Professionals</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">1,000+ Online Sessions Delivered</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">No Extreme Diets • Real Habits That Stick</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">Desk Mobility & Strength Programs</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                    </div>
+                    <div class="marquee-child-item d-flex align-items-center g-15" aria-hidden="true">
+                        <span class="text-uppercase fw-semibold text-Title" style="color: #DEFB02; font-size: 13px; letter-spacing: 1px;">Make A Move</span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">Online 1-on-1 Coaching for Busy Professionals</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">1,000+ Online Sessions Delivered</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">No Extreme Diets • Real Habits That Stick</span>
+                        <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
+                        <span class="text-uppercase text-White" style="font-size: 13px;">Desk Mobility & Strength Programs</span>
                         <span class="d-inline-flex align-items-center" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 10 10" fill="#DEFB02" aria-hidden="true"><polygon points="5,0 10,5 5,10 0,5"/></svg></span>
                     </div>
                 </div>
