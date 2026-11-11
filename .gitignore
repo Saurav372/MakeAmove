@@ -1,0 +1,21 @@
+# Archives & backups
+*.7z
+*.zip
+*.rar
+*.tar.gz
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Environment & secrets
+.env
+.env.*
+
+# Dependencies & caches
+node_modules/
+__pycache__/
+*.pyc
+.sass-cache/

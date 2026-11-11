@@ -1,0 +1,284 @@
+---
+interface Props {
+  badgeText?: string;
+  headline?: string;
+  highlightedText?: string;
+  subheadline?: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  badgeText = "Online personal training by Coach Kunal",
+  headline = "Confused by workouts? Short on time?",
+  highlightedText = "Build a plan you will actually stick to.",
+  subheadline = "Make A Move pairs efficient training, habit systems, and weekly accountability so your progress is steady even when life gets messy.",
+  primaryCtaText = "Book free 15-minute call",
+  primaryCtaHref = "/book",
+  secondaryCtaText = "Chat on WhatsApp",
+  secondaryCtaHref = "https://wa.me/919307214914?text=I'm%20interested%20in%20online%20coaching%20with%20Make%20A%20Move"
+} = Astro.props;
+---
+
+<section class="relative w-full min-h-[92vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-brand-dark text-white select-none">
+  <!-- 3D WebGL Canvas Layer -->
+  <canvas 
+    id="three-canvas" 
+    class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80 mix-blend-screen transition-opacity duration-1000"
+    aria-hidden="true"
+  ></canvas>
+
+  <!-- Ambient Vignette & Gradient Overlays -->
+  <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-slate-950/70 pointer-events-none z-10"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-teal/10 via-transparent to-transparent pointer-events-none z-10"></div>
+
+  <!-- 2D DOM Copy & Interaction Overlay -->
+  <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center flex flex-col items-center">
+    
+    <!-- Trust Pill -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/30 text-brand-tealLight text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-md mb-6 shadow-sm">
+      <span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+      {badgeText}
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] max-w-4xl">
+      {headline} <span class="bg-gradient-to-r from-brand-teal via-teal-300 to-emerald-400 bg-clip-text text-transparent">{highlightedText}</span>
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+      {subheadline}
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+      <a 
+        href={primaryCtaHref} 
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-teal hover:bg-brand-tealDark text-white text-base font-bold px-8 py-4 rounded-full shadow-elevated hover:shadow-glow transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+      >
+        {primaryCtaText}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      <a 
+        href={secondaryCtaHref} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/15 text-white border border-white/20 backdrop-blur-md text-base font-semibold px-7 py-4 rounded-full transition-all"
+      >
+        <svg class="w-5 h-5 text-emerald-400 fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.541 1.838.831 2.796.832h.005c3.18 0 5.766-2.586 5.767-5.766.001-3.18-2.585-5.767-5.767-5.767zm7.653 5.766c-.002 4.225-3.438 7.662-7.661 7.662-1.223 0-2.417-.301-3.479-.873l-4.544 1.192 1.213-4.428c-.628-1.088-.96-2.336-.96-3.553.002-4.224 3.439-7.661 7.663-7.661 4.224 0 7.668 3.438 7.668 7.661z"/>
+        </svg>
+        {secondaryCtaText}
+      </a>
+    </div>
+
+    <!-- Quick Metric Ribbons -->
+    <div class="mt-14 pt-8 border-t border-slate-800/80 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-12 text-slate-400 text-xs sm:text-sm">
+      <div>
+        <p class="text-white text-xl sm:text-2xl font-black">1000+</p>
+        <p class="text-slate-400 mt-0.5">Online Sessions</p>
+      </div>
+      <div>
+        <p class="text-brand-teal text-xl sm:text-2xl font-black">92%</p>
+        <p class="text-slate-400 mt-0.5">Weekly Adherence</p>
+      </div>
+      <div class="col-span-2 sm:col-span-1">
+        <p class="text-white text-xl sm:text-2xl font-black">20-40 min</p>
+        <p class="text-slate-400 mt-0.5">Focused Blocks</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Vanilla Three.js Script (Lean, Cleaned & View-Transitions Safe) -->
+<script>
+  import * as THREE from 'three';
+
+  let animationFrameId: number | null = null;
+  let renderer: THREE.WebGLRenderer | null = null;
+  let scene: THREE.Scene | null = null;
+  let camera: THREE.PerspectiveCamera | null = null;
+  
+  // Geometries and materials for memory release
+  let torusMesh: THREE.Mesh | null = null;
+  let particleSystem: THREE.Points | null = null;
+  let torusGeo: THREE.TorusGeometry | null = null;
+  let torusMat: THREE.MeshBasicMaterial | null = null;
+  let particlesGeo: THREE.BufferGeometry | null = null;
+  let particlesMat: THREE.PointsMaterial | null = null;
+
+  // Mouse interaction state
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  function onMouseMove(event: MouseEvent) {
+    mouseX = (event.clientX - window.innerWidth / 2) * 0.001;
+    mouseY = (event.clientY - window.innerHeight / 2) * 0.001;
+  }
+
+  function onResize() {
+    if (!renderer || !camera) return;
+    const canvas = document.getElementById('three-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    const width = canvas.clientWidth || window.innerWidth;
+    const height = canvas.clientHeight || window.innerHeight;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(width, height, false);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  }
+
+  function initThree() {
+    const canvas = document.getElementById('three-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    // 1. Scene & Camera
+    scene = new THREE.Scene();
+    const width = canvas.clientWidth || window.innerWidth;
+    const height = canvas.clientHeight || window.innerHeight;
+
+    camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
+    camera.position.z = 4.5;
+
+    // 2. WebGL Renderer with optimized flags
+    renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.setSize(width, height, false);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // 3. Kinetic Geometry: Wireframe Torus (Brand Functional Fitness Aesthetic)
+    torusGeo = new THREE.TorusGeometry(1.6, 0.45, 16, 100);
+    torusMat = new THREE.MeshBasicMaterial({
+      color: 0x0d9488, // brand-teal
+      wireframe: true,
+      transparent: true,
+      opacity: 0.35,
+    });
+    torusMesh = new THREE.Mesh(torusGeo, torusMat);
+    scene.add(torusMesh);
+
+    // 4. Kinetic Particles Field
+    const particleCount = 450;
+    const positions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      positions[i] = (Math.random() - 0.5) * 12;
+      positions[i + 1] = (Math.random() - 0.5) * 12;
+      positions[i + 2] = (Math.random() - 0.5) * 8;
+    }
+
+    particlesGeo = new THREE.BufferGeometry();
+    particlesGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    particlesMat = new THREE.PointsMaterial({
+      size: 0.028,
+      color: 0x2dd4bf, // teal-400
+      transparent: true,
+      opacity: 0.65,
+      blending: THREE.AdditiveBlending
+    });
+
+    particleSystem = new THREE.Points(particlesGeo, particlesMat);
+    scene.add(particleSystem);
+
+    // 5. Event Listeners
+    window.addEventListener('resize', onResize);
+    window.addEventListener('mousemove', onMouseMove);
+
+    // 6. Animation Loop (60/120fps with smooth damping)
+    const clock = new THREE.Clock();
+
+    function animate() {
+      const elapsedTime = clock.getElapsedTime();
+
+      // Smooth camera interpolation towards mouse
+      targetX += (mouseX - targetX) * 0.05;
+      targetY += (mouseY - targetY) * 0.05;
+
+      if (torusMesh) {
+        torusMesh.rotation.x = elapsedTime * 0.15 + targetY * 0.8;
+        torusMesh.rotation.y = elapsedTime * 0.2 + targetX * 0.8;
+      }
+
+      if (particleSystem) {
+        particleSystem.rotation.y = elapsedTime * 0.04;
+        particleSystem.rotation.x = -elapsedTime * 0.02;
+      }
+
+      if (renderer && scene && camera) {
+        renderer.render(scene, camera);
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  function destroyThree() {
+    if (animationFrameId !== null) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+
+    window.removeEventListener('resize', onResize);
+    window.removeEventListener('mousemove', onMouseMove);
+
+    // Dispose geometries & materials
+    if (torusGeo) torusGeo.dispose();
+    if (torusMat) torusMat.dispose();
+    if (particlesGeo) particlesGeo.dispose();
+    if (particlesMat) particlesMat.dispose();
+
+    if (scene) {
+      while (scene.children.length > 0) {
+        scene.remove(scene.children[0]);
+      }
+    }
+
+    if (renderer) {
+      renderer.dispose();
+      renderer.forceContextLoss();
+      renderer = null;
+    }
+
+    scene = null;
+    camera = null;
+    torusMesh = null;
+    particleSystem = null;
+  }
+
+  // Lifecycle bindings: works with standard SSR & Astro View Transitions
+  document.addEventListener('astro:page-load', () => {
+    destroyThree();
+    initThree();
+  });
+
+  document.addEventListener('astro:before-swap', () => {
+    destroyThree();
+  });
+
+  // Fallback for initial load when View Transitions is not active
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initThree();
+  } else {
+    document.addEventListener('DOMContentLoaded', initThree);
+  }
+</script>
+

@@ -1,0 +1,175 @@
+.flat-animate-tab {
+    overflow: hidden;
+}
+
+
+.tab-content {
+    position: relative;
+
+    .tab-pane {
+        display: block;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        transition-timing-function: ease-in;
+        transition-duration: 0.2s;
+
+        &.active {
+            pointer-events: auto;
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+            z-index: 2;
+            transition-timing-function: ease-out;
+            transition-duration: 0.3s;
+            transition-delay: 0.3s;
+        }
+    }
+}
+
+.wg-tab-price {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #FFFFFF1A;
+    .tab-price-box {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        border-radius: 14px;
+        margin: 2px;
+        background-color: #020507;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        inset: -1px 0;
+        border-radius: 12px;
+        background: linear-gradient(193.18deg, #FFFFFF 4.81%, rgba(255, 255, 255, 0) 27.49%);
+        z-index: 1;
+        transition: all 0.5s linear;
+        transform: rotate(0);
+    }
+    &::after {
+        position: absolute;
+        content: '';
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: calc(100% + 2px);
+        opacity: 0;
+        border-radius: 12px;
+        background: linear-gradient(193.18deg, #DEFB02 4.81%, rgba(255, 255, 255, 0) 27.49%);
+        z-index: 2;
+        transition: all 0.5s linear;
+        transform: rotate(180deg);
+    }
+    &:hover {
+        &::before {
+            transform: rotate(180deg);
+        }
+        &::after {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+    }
+    .tab-menu {
+        display: grid;
+        gap: 10px;
+        flex-shrink: 0;
+        width: 396px;
+        padding: 8px 10px 8px 8px;
+        border-right: 1px solid #FFFFFF1A;
+        a {
+            display: block;
+            padding: 29px;
+            background: #FFFFFF0D;
+            border: 1px solid #FFFFFF1A;
+            border-radius: 10px;
+
+            &.active {
+                background-color: var(--Neon);
+                border-color: var(--Neon);
+                .text,
+                .title {
+                    color: var(--Title);
+                }
+                svg path {
+                    fill: var(--Title);
+                }
+            }
+            .icon {
+                margin-bottom: 25px;
+                svg path {
+                    @include transition3;
+                }
+            }
+            .title {
+                color: var(--White);
+                text-transform: uppercase;
+                margin-bottom: 4px;
+                @include transition3;
+            }
+            .text {
+                color: #FFFFFFA6;
+                font-size: 18px;
+                line-height: 26px;
+                @include transition3;
+            }
+        }
+    }
+    .tab-content {
+        flex-grow: 1;
+    }
+    .tab-price-content {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        height: 100%;
+        >.item {
+            padding: 50px 50px 49px ;
+            &:not(:last-child) {
+                border-right: 1px solid #FFFFFF1A;
+            }
+        }
+        .price {
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 57px;
+            color: var(--White);
+        }
+        .per {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 23px;
+            color: var(--White);
+            text-transform: capitalize;
+            margin-bottom: 7px;
+        }
+        .desc {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 23px;
+            letter-spacing: -0.03em;
+            color: var(--White);
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 29px;
+        }
+        .list-text {
+            gap: 17px;
+            margin-bottom: 38px;
+            .text-item {
+                color: #FFFFFFA6;
+                &::before {
+                    background-color: #FFFFFFA6;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.nice-select {
+    display: flex;
+    border-color:#00000012 ;
+    position: relative;
+    padding: 15px 19px;
+    border-radius: 10px;
+
+    &::before {
+        content: '\e934';
+        font-family: $fontIcon;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        line-height: 20px;
+        @include transition3();
+        color: var(--Title);
+    }
+
+    &::after {
+        display: none;
+    }
+
+    >span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: var(--Paragraph);
+    }
+
+    .option {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 10px 29px 10px 18px;
+    }
+
+    &.open {
+        z-index: 50;
+
+        &::before {
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+
+}

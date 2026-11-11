@@ -1,0 +1,108 @@
+.tf-btn {
+    width: max-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 34px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    border: 0;
+    border-radius: 10px;
+    color: var(--Black);
+    background-color: var(--Neon);
+    border: 1px solid  var(--Neon);
+    position: relative;
+    @include transition3();
+
+    &:hover {
+        background-color: var(--Black);
+        color: var(--Neon);
+    }
+
+    &.style-black {
+        color: var(--White);
+        background-color: var(--Black);
+        border-color: var(--Black);
+        &:hover {
+            background-color: var(--Neon);
+            color: var(--Black);
+        }
+    }
+
+    &.style-1 {
+        padding: 15px 34px;
+        color: var(--Paragraph);
+        background-color: transparent;
+        border: 1px solid #0000001A;
+        &:hover {
+            color: var(--White);
+            background-color: var(--Black);
+            border-color: var(--Black);
+        }
+    }
+
+    &.style-sm {
+        padding: 10px 22px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    &.style-2 {
+        padding: 15px;
+        color: var(--Paragraph);
+        background-color: transparent;
+        border: 1px solid #FFFFFF1A;
+        &:hover {
+            color: var(--Title);
+            background-color: var(--Neon);
+            border-color: var(--Neon);
+        }
+    }
+
+}
+
+.tf-btn-newsletter {
+    color: var(--color-title);
+    @include transition3();
+
+    i {
+        font-size: 20px;
+    }
+
+    &:hover {
+        color: var(--red);
+    }
+}
+
+.tf-btn-default {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    .icon {
+        font-size: 18px;
+    }
+    &::after {
+        position: absolute;
+        content: '';
+        height: 1px;
+        bottom: 0;
+        width: 0;
+        right: 0;
+        left: auto;
+        background-color: currentColor;
+        @include transition3;
+    }
+    &:hover {
+        &::after {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+    }
+}

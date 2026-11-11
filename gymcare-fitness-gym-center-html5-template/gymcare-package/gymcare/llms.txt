@@ -1,0 +1,21 @@
+# Make A Move (makeamove.fit)
+> Online 1-on-1 Fitness, Movement & Mobility Coaching for Busy Professionals
+
+- Website: http://localhost:3000/
+- Head Coach: Coach Kunal (Team India Ultimate Frisbee Athlete, 1,000+ Online Coaching Sessions)
+- Core Focus: Desk Worker Mobility, Posture Correction, Progressive Strength, Sustainable Nutrition Habits.
+- Operating Model: 100% Online Coaching Worldwide via WhatsApp, Zoom & Google Meet.
+- Direct Contact: coach@makeamove.fit | +91 93072 14914
+
+## Primary Pages
+- Home: /index.html
+- Coaching Programs: /services.html
+- How It Works: /about-us.html
+- Client Results & Case Studies: /portfolio.html
+- Membership Pricing (Kickstart, Consistency, Lite): /pricing.html
+- Frequently Asked Questions: /faqs.html
+- Evidence-Based Fitness Blog: /blog.html
+- Book a Free Consultation: /contact.html
+- Privacy Policy: /privacy-policy.html
+- Health & Medical Disclaimer: /health-disclaimer.html
+
