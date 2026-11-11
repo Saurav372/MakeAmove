@@ -509,6 +509,27 @@ img[src*="blog-5"] {
     object-position: center top !important;
 }
 
+/* Scroll Progress Hairline on Sticky Header */
+html.js-motion .header-sticky::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #DEFB02;
+    transform-origin: left center;
+    transform: scaleX(var(--mam-scroll, 0));
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity 0.2s ease;
+}
+
+html.js-motion .header-sticky.header-bg::after {
+    opacity: 1;
+}
+
 /* Interactive Cards, Pricing Switch & Accordions */
 .programs-image {
     overflow: hidden;
@@ -520,13 +541,14 @@ img[src*="blog-5"] {
     height: 480px;
     object-fit: cover;
     border-radius: 10px;
-    transition: opacity 0.24s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translate3d(0, var(--mam-prog-y, 0px), 0) scale(var(--mam-pscale, 1));
+    transition: opacity 0.24s ease, transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
 }
 
 .programs-image img.is-swapping {
     opacity: 0.25;
-    transform: scale(1.028);
+    --mam-pscale: 1.028;
 }
 
 @media (max-width: 991px) {
@@ -545,22 +567,99 @@ img[src*="blog-5"] {
     transform: translateY(-6px);
 }
 
-/* Phase 2: Staggered Scroll Reveals (Progressive Enhancement — Never Hidden Without JS) */
+/* Phase 2 + Extended Directional Scroll Reveals (Progressive Enhancement — Never Hidden Without JS) */
 html.js-motion [data-reveal]:not(.is-visible) {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translate3d(0, 18px, 0);
+}
+
+html.js-motion [data-reveal="scale"]:not(.is-visible) {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.97);
+}
+
+@media (min-width: 768px) {
+    html.js-motion [data-reveal="left"]:not(.is-visible) {
+        opacity: 0;
+        transform: translate3d(-18px, 0, 0);
+    }
+
+    html.js-motion [data-reveal="right"]:not(.is-visible) {
+        opacity: 0;
+        transform: translate3d(18px, 0, 0);
+    }
 }
 
 html.js-motion [data-reveal] {
-    transition: opacity 0.48s cubic-bezier(0.22, 1, 0.36, 1), transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: calc(var(--mam-stagger, 0) * 65ms);
     will-change: opacity, transform;
 }
 
 html.js-motion [data-reveal].is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0) scale(1);
     will-change: auto;
+}
+
+.section-programs,
+.section-about-gym,
+.about-wrap-2 {
+    overflow-x: clip;
+}
+
+/* Multi-Layer Desktop Scroll Parallax (GPU-Composited Only, >= 992px) */
+@media (min-width: 992px) {
+    .section-hero-3 .image {
+        overflow: hidden;
+        border-radius: 14px;
+    }
+
+    html.js-motion .section-hero-3 .image img {
+        transform: translate3d(var(--mam-hx, 0px), calc(var(--mam-hy, 0px) + var(--mam-hsy, 0px)), 0) rotateX(var(--mam-hrx, 0deg)) rotateY(var(--mam-hry, 0deg)) scale(var(--mam-hs, 1.05));
+        transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+    }
+
+    html.js-motion .programs-image img {
+        --mam-pscale: 1.08;
+    }
+
+    html.js-motion .programs-image img.is-swapping {
+        --mam-pscale: 1.11;
+    }
+
+    html.js-motion .page-title .image img {
+        transform: translate3d(0, var(--mam-pgy, 0px), 0) scale(1.15);
+        transition: transform 0.14s linear;
+        will-change: transform;
+    }
+
+    html.js-motion .page-title .page-title-content {
+        transform: translate3d(0, var(--mam-pgc, 0px), 0);
+        transition: transform 0.14s linear;
+        will-change: transform;
+    }
+
+    .section-about-gym .image-wrap,
+    .about-wrap-2 .image-wrap {
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    html.js-motion .section-about-gym .image-wrap img,
+    html.js-motion .about-wrap-2 .image-wrap img {
+        transform: translate3d(0, var(--mam-aby, 0px), 0) scale(1.08);
+        transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+    }
+
+    html.js-motion .section-about-gym .image-wrap > div,
+    html.js-motion .about-wrap-2 .image-wrap > div {
+        transform: translate3d(0, var(--mam-bgy, 0px), 0);
+        transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+    }
 }
 
 @media (max-width: 767px) {
@@ -863,7 +962,7 @@ html.js-motion .mam-wf-node:not(.is-lit) {
         perspective: 1000px;
     }
     html.js-motion .section-hero-3 .image img {
-        transform: translate3d(var(--mam-hx, 0px), calc(var(--mam-hy, 0px) + var(--mam-hsy, 0px)), 0) rotateX(var(--mam-hrx, 0deg)) rotateY(var(--mam-hry, 0deg)) scale(var(--mam-hs, 1));
+        transform: translate3d(var(--mam-hx, 0px), calc(var(--mam-hy, 0px) + var(--mam-hsy, 0px)), 0) rotateX(var(--mam-hrx, 0deg)) rotateY(var(--mam-hry, 0deg)) scale(var(--mam-hs, 1.05));
         transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
         will-change: transform;
     }
@@ -918,9 +1017,19 @@ html.js-motion .mam-wf-node:not(.is-lit) {
     html.js-motion [data-reveal]:not(.is-visible),
     .mam-kpi-fill,
     html.js-motion .pricing-item,
-    html.js-motion .section-hero-3 .image img {
+    html.js-motion .section-hero-3 .image img,
+    html.js-motion .programs-image img,
+    html.js-motion .page-title .image img,
+    html.js-motion .page-title .page-title-content,
+    html.js-motion .section-about-gym .image-wrap img,
+    html.js-motion .about-wrap-2 .image-wrap img,
+    html.js-motion .section-about-gym .image-wrap > div,
+    html.js-motion .about-wrap-2 .image-wrap > div {
         opacity: 1 !important;
         transform: none !important;
+    }
+    html.js-motion .header-sticky::after {
+        display: none !important;
     }
     .mam-wf-line {
         stroke-dashoffset: 0 !important;
